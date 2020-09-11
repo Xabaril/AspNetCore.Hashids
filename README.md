@@ -36,7 +36,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Create an DTO and decorate your ids properties with **JsonConverter**
+In your DTOs, decorate the properties that you want to be hash with the **JsonConverter** attribute **HashidsJsonConverter**
 
 ```csharp
 public class CustomerDto
