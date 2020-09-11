@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB715A58-63CC-4423-AFC2-7B2865C0114E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Hashids", "src\AspNetCore.Hashids\AspNetCore.Hashids.csproj", "{145D160D-E64D-4B59-A1D8-115FBF5AD8B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{59424F67-B8DC-47F7-AB5C-79C52B502854}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "samples\WebApi\WebApi.csproj", "{FBBDE4E6-4753-4BC2-B46F-962852013079}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B17FD392-8EF2-411E-B323-E57E4B1D651E}"
+	ProjectSection(SolutionItems) = preProject
+		build\dependencies.props = build\dependencies.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{145D160D-E64D-4B59-A1D8-115FBF5AD8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145D160D-E64D-4B59-A1D8-115FBF5AD8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145D160D-E64D-4B59-A1D8-115FBF5AD8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145D160D-E64D-4B59-A1D8-115FBF5AD8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBDE4E6-4753-4BC2-B46F-962852013079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBDE4E6-4753-4BC2-B46F-962852013079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBDE4E6-4753-4BC2-B46F-962852013079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBDE4E6-4753-4BC2-B46F-962852013079}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{145D160D-E64D-4B59-A1D8-115FBF5AD8B1} = {EB715A58-63CC-4423-AFC2-7B2865C0114E}
+		{FBBDE4E6-4753-4BC2-B46F-962852013079} = {59424F67-B8DC-47F7-AB5C-79C52B502854}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37B32009-3AA9-4731-B559-E64AF14C1D03}
+	EndGlobalSection
+EndGlobal

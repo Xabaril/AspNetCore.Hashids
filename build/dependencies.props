@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup Label="SDK Versions">
+    <NetStandardTargetVersion21>netstandard2.1</NetStandardTargetVersion21>
+    <NetCoreTargetVersion>netcoreapp3.1</NetCoreTargetVersion>
+    <LangVersion>preview</LangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="AspNetCore.Hashids Versions">
+    <AspNetCoreHashids>1.0.0$(VersionSuffix)</AspNetCoreHashids>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package Dependencies">
+    <AspNetCoreVersion>3.1.5</AspNetCoreVersion>
+    <MicrosoftSourceLinkGithub>1.0.0</MicrosoftSourceLinkGithub>
+  </PropertyGroup>
+
+  <PropertyGroup Label="CLI Tools Versions">
+  </PropertyGroup>
+  
+</Project>
