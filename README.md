@@ -68,7 +68,7 @@ It will be hashed:
 ]
 ```
 
-Also you can use the HashidsRouteConstarint and the HashidsModelBinder to convert the hashid in the integer value again:
+Also you can use the HashidsRouteConstarint and the HashidsModelBinder to convert the hashid generated in the original integer value:
 
 ```csharp
 [HttpGet]
