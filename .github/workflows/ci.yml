@@ -1,0 +1,25 @@
+name: AspNetCore.Hashids Continous Integration (master,releases)             
+
+on:
+  push:
+    branches: [ master, 'releases/**' ]
+  pull_request:
+    branches: [ master, 'releases/**' ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.401
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
