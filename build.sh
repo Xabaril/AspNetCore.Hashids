@@ -16,9 +16,3 @@ buildSuffix="$suffix-$commitHash"
 echo "build: Version suffix is $buildSuffix"
 
 dotnet build -c Release --version-suffix "$buildSuffix"  -v q /nologo
-
-# echo "Running unit tests"
-# dotnet test ./tests/UnitTests/UnitTests.csproj
-
-echo "Runing functional tests"
-dotnet test ./test/FunctionalTests/FunctionalTests.csproj

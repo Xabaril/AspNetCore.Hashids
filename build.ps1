@@ -32,24 +32,3 @@ $buildSuffix = "$($suffix)-$($commitHash)"
 Write-Output "build: Version suffix is $buildSuffix"
 
 exec { & dotnet build AspNetCore.Hashids.sln -c Release --version-suffix=$buildSuffix -v q /nologo }
-	
-# echo "Running unit tests"
-
-# try {
-
-# Push-Location -Path .\tests\UnitTests
-#         exec { & dotnet test}
-# } finally {
-#         Pop-Location
-# }
-
-Write-Output "Running functional tests"
-
-try {
-
-  Push-Location -Path .\test\FunctionalTests
-  exec { & dotnet test }
-}
-finally {
-  Pop-Location
-}

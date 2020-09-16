@@ -18,7 +18,11 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddHashids(setup => setup.Salt = "&`r&?mKW7}shDja%$l|bBS)DlA-WHz+-OP:8D#*PK|r{*_2Haxm(5Xj>l67s)5+h")
+                .AddHashids(setup =>
+                {
+                    setup.Salt = "&`r&?mKW7}shDja%$l|bBS)DlA-WHz+-OP:8D#*PK|r{*_2Haxm(5Xj>l67s)5+h";
+                    setup.MinHashLength = 8;
+                })
                 .AddSwaggerGen(c => c.OperationFilter<HashidsOperationFilter>())
                 .AddControllers();
         }

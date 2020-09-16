@@ -9,8 +9,12 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        internal static IHashids Hashids;
-
+        /// <summary>
+        /// Adds default ASP.NET Core services for AspNetCore.Hashids
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/></param>
+        /// <param name="setup">The action used to configure <see cref="Hashids"/></param>
+        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chanined.</returns>
         public static IServiceCollection AddHashids(this IServiceCollection services, Action<HashidsOptions> setup)
         {
             services.Configure(setup);
@@ -20,8 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton(sp =>
             {
                 var options = sp.GetRequiredService<HashidsOptions>();
-                Hashids = new Hashids(options.Salt, options.MinHashLength, options.Alphabet, options.Steps);
-                return Hashids;
+                return new Hashids(options.Salt, options.MinHashLength, options.Alphabet, options.Steps);
             });
 
             services.PostConfigure<RouteOptions>(setup =>
