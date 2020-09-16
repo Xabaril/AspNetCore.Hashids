@@ -1,0 +1,33 @@
+name: AspNetCore.Hashids Nuget Preview
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  publish:
+    env:
+      build_configuration: Release
+      version_suffix: .preview${{ github.run_number }} 
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.401
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration $build_configuration --no-restore
+      - name: Test
+        run: dotnet test --no-build --no-restore --verbosity normal
+      - name: Pack
+        run: dotnet pack ./src/AspNetCore.Hashids/AspNetCore.Hashids.csproj -c $build_configuration --version-suffix $version_suffix --no-build --include-source --include-symbols -o ./artifacts
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@1.0.2
+        with:
+          nuget-version: latest
+      - name: Publish
+        run: dotnet nuget push ./artifacts/AspNetCore.Hashids.*.nupkg -k ${{ secrets.nuget_api_key }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      
