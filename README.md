@@ -68,7 +68,40 @@ It will be hashed:
 ]
 ```
 
-Also you can use the HashidsRouteConstarint and the HashidsModelBinder to convert the hashid generated in the original integer value:
+You can encoding the ids specifying **minimum hash lenght**:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services
+        .AddHashids(setup =>
+        {
+            setup.Salt = "your_salt";
+            setup.MinHashLength = 8;
+        });
+}
+```
+
+and the output will be something like this:
+
+```json
+[
+  {
+    "id": "omrA3dl2",
+    "nonHashid": 10000,
+    "firstName": "Luis",
+    "lastName": "Ruiz"
+  },
+  {
+    "id": "gj1vzXlz",
+    "nonHashid": 20000,
+    "firstName": "Unai",
+    "lastName": "Zorrilla"
+  }
+]
+```
+
+Also you can use the [HashidsRouteConstarint](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsRouteConstraint.cs) and the [HashidsModelBinder](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsModelBinder.cs) to convert the hashid generated in the original integer value:
 
 ```csharp
 [HttpGet]

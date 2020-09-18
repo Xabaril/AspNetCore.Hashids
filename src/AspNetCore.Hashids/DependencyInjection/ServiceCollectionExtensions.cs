@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddHttpContextAccessor();
             services.AddSingleton(sp => sp.GetRequiredService<IOptions<HashidsOptions>>().Value);
             services.ConfigureOptions<ConfigureJsonOptions>();
-            services.AddSingleton(sp =>
+            services.AddSingleton<IHashids>(sp =>
             {
                 var options = sp.GetRequiredService<HashidsOptions>();
                 return new Hashids(options.Salt, options.MinHashLength, options.Alphabet, options.Steps);

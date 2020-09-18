@@ -41,7 +41,7 @@ namespace WebApi.Controllers
         [Route("{id:hashids}")]
         [Produces(MediaTypeNames.Application.Json)]
         public ActionResult<CustomerDto> Get(
-            [ModelBinder(typeof(HashidsModelBinder))] int id)
+            [FromRoute][ModelBinder(typeof(HashidsModelBinder))] int id)
         {
             return Ok(customers.SingleOrDefault(c => c.Id == id));
         }
