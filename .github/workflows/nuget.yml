@@ -2,8 +2,6 @@ name: AspNetCore.Hashids Nuget
 
 on:
   push:
-    branches:
-      - master
     tags:
       - v*
 
