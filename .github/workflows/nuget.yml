@@ -1,15 +1,12 @@
 name: AspNetCore.Hashids Nuget
 
 on:
-  push:
-    tags:
-      - v*
+  workflow_dispatch:
 
 jobs:
   publish:
     env:
       build_configuration: Release
-      version_suffix: .preview${{ github.run_number }}
     runs-on: ubuntu-latest
 
     steps:
