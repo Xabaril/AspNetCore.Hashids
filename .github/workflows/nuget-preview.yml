@@ -10,7 +10,7 @@ jobs:
   publish:
     env:
       build_configuration: Release
-      version_suffix: .preview${{ github.run_number }}
+      version_suffix: -preview${{ github.run_number }}
     runs-on: ubuntu-latest
 
     steps:
