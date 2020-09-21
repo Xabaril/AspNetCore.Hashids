@@ -101,18 +101,22 @@ and the output will be something like this:
 ]
 ```
 
-Also you can use the [HashidsRouteConstarint](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsRouteConstraint.cs) and the [HashidsModelBinder](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsModelBinder.cs) to convert the hashid generated in the original integer value:
+If you want to see more configuration, please visit [hashids.net](https://hashids.org/net/).
+
+Now it's time to consume the hashids from our clients. For this purpose, you can use the [HashidsRouteConstarint](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsRouteConstraint.cs) and the [HashidsModelBinder](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsModelBinder.cs) to convert the hashid generated in the original integer value:
 
 ```csharp
 [HttpGet]
 [Route("{id:hashids}")]
 [Produces(MediaTypeNames.Application.Json)]
 public ActionResult<CustomerDto> Get(
-    [ModelBinder(typeof(HashidsModelBinder))] int id)
+    [FromRoute][ModelBinder(typeof(HashidsModelBinder))] int id)
 {
     return Ok(customers.SingleOrDefault(c => c.Id == id));
 }
 ```
+
+> It's important to use **FromRoute** attribute before **HashidsModelBinder** if you want to use [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) there is a known bug related with model binders.
 
 You see a full example [here](https://github.com/Xabaril/AspNetCore.Hashids/samples/WebApi) and how to modify our swagger-ui to change the type of the hashids from integers to strings.
 
