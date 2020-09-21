@@ -116,7 +116,7 @@ public ActionResult<CustomerDto> Get(
 
 You see a full example [here](https://github.com/Xabaril/AspNetCore.Hashids/samples/WebApi) and how to modify our swagger-ui to change the type of the hashids from integers to strings.
 
-... and last but not least a big thanks to all our [contributors](https://github.com/Xabaril/Balea/graphs/contributors)!
+... and last but not least a big thanks to all our [contributors](https://github.com/Xabaril/AspNetCore.Hashids/graphs/contributors)!
 
 ## Code of conduct
 
