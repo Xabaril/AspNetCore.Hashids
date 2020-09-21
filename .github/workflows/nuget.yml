@@ -1,7 +1,9 @@
 name: AspNetCore.Hashids Nuget
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - v*
 
 jobs:
   publish:
