@@ -1,6 +1,9 @@
 name: AspNetCore.Hashids Nuget Preview
 
 on:
+  push:
+    branches:
+      - releases/**
   workflow_dispatch:
 
 jobs:
