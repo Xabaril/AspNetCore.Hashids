@@ -1,4 +1,4 @@
-[![Nuget](https://img.shields.io/nuget/v/aspnetcore.hashids?label=AspNetCore.Hashids)](https://www.nuget.org/packages/Balea/)
+[![Nuget](https://img.shields.io/nuget/v/aspnetcore.hashids?label=AspNetCore.Hashids)](https://www.nuget.org/packages/AspNetCore.Hashids/)
 
 # AspNetCore Hashids: Avoid predictable ids in your APIs
 
