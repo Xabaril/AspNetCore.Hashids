@@ -1,3 +1,5 @@
+[![Nuget](https://img.shields.io/nuget/v/aspnetcore.hashids?label=AspNetCore.Hashids)](https://www.nuget.org/packages/Balea/)
+
 # AspNetCore Hashids: Avoid predictable ids in your APIs
 
 Sometimes developers don’t take care about security concerns when they develop a REST API. I know this scope is not straightforward but at least we should comply with a minimum of basic security rules in order to avoid the most common attacks.
