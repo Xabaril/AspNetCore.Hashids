@@ -17,6 +17,7 @@ namespace WebApi.Controllers
             {
                 Id = 5555,
                 NonHashid = 10000,
+                NullableId = 66666,
                 FirstName = "Luis",
                 LastName = "Ruiz"
             },
