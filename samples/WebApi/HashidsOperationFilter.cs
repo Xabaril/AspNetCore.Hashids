@@ -9,7 +9,7 @@ namespace WebApi
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            var hasdids = context
+            var hashids = context
                 .ApiDescription
                 .ParameterDescriptions
                 .Where(x => x.ModelMetadata.BinderType == typeof(HashidsModelBinder))
@@ -17,7 +17,7 @@ namespace WebApi
 
             foreach (var parameter in operation.Parameters)
             {
-                if (hasdids.TryGetValue(parameter.Name, out var apiParameter))
+                if (hashids.TryGetValue(parameter.Name, out var apiParameter))
                 {
                     parameter.Schema.Format = string.Empty;
                     parameter.Schema.Type = "string";
@@ -28,7 +28,7 @@ namespace WebApi
             {
                 foreach (var property in schema.Properties)
                 {
-                    if (hasdids.TryGetValue(property.Key, out var apiParameter))
+                    if (hashids.TryGetValue(property.Key, out var apiParameter))
                     {
                         property.Value.Format = string.Empty;
                         property.Value.Type = "string";
