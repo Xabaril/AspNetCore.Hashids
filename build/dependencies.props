@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Package Dependencies">
-    <AspNetCoreVersion>3.1.5</AspNetCoreVersion>
+    <AspNetCoreVersion>3.1.9</AspNetCoreVersion>
     <MicrosoftSourceLinkGithub>1.0.0</MicrosoftSourceLinkGithub>
   </PropertyGroup>
 
