@@ -12,8 +12,15 @@ namespace AspNetCore.Hashids.Json
         {
             if (reader.TokenType == JsonTokenType.String)
             {
-                string stringValue = reader.GetString();
-                return GetHashids(options).Decode(stringValue)[0];
+                var stringValue = reader.GetString();
+                var hashid = GetHashids(options).Decode(stringValue);
+
+                if (hashid.Length == 0)
+                {
+                    throw new JsonException("Invalid hash.");
+                }
+
+                return hashid[0];
             }
             else if (reader.TokenType == JsonTokenType.Number)
             {
