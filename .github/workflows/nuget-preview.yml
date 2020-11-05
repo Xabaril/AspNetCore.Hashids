@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: dotnet build --configuration $build_configuration --no-restore
       - name: Test
-        run: dotnet test --no-build --no-restore --verbosity normal
+        run: dotnet test --no-restore --verbosity normal
       - name: Pack
         run: dotnet pack ./src/AspNetCore.Hashids/AspNetCore.Hashids.csproj -c $build_configuration --version-suffix $version_suffix --no-build --include-source --include-symbols -o ./artifacts
       - name: Setup NuGet

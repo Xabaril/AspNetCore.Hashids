@@ -4,8 +4,10 @@ using AspNetCore.Hashids.Tests.Seedwork;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.TestHost;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Mime;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -75,6 +77,24 @@ namespace AspNetCore.Hashids.Tests
 
             response.StatusCode.Should().Be(StatusCodes.Status404NotFound);
         }
+
+        [Fact]
+        public async Task not_allow_add_or_update_resources_when_hashid_is_not_valid()
+        {
+            var dto = new CustomerDtoHashed
+            {
+                Id = "cmrA3dl2",
+                FirstName = "Test",
+                LastName = "Test"
+            };
+            var response = await fixture
+                .TestServer
+                .CreateRequest($"api/customers")
+                .WithJsonBody(dto)
+                .PostAsync();
+
+            response.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
+        }
     }
 
     [Route("api/customers")]
@@ -99,6 +119,14 @@ namespace AspNetCore.Hashids.Tests
                 LastName = "Zorrilla"
             }
         };
+
+        [HttpPost]
+        [Route("")]
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult<IEnumerable<CustomerDto>> Post(CustomerDto dto)
+        {
+            return Ok();
+        }
 
         [HttpGet]
         [Route("")]
