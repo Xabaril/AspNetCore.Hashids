@@ -25,7 +25,7 @@ jobs:
       - name: Pack
         run: dotnet pack ./src/AspNetCore.Hashids/AspNetCore.Hashids.csproj -c $build_configuration --version-suffix $version_suffix --no-build --include-source --include-symbols -o ./artifacts
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.0.2
+        uses: NuGet/setup-nuget@v1.0.5
         with:
           nuget-version: latest
       - name: Publish
