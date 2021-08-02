@@ -45,6 +45,7 @@ namespace AspNetCore.Hashids.Tests.Seedwork
                 {
                     setup.Salt = "&`r&?mKW7}shDja%$l|bBS)DlA-WHz+-OP:8D#*PK|r{*_2Haxm(5Xj>l67s)5+h";
                     setup.MinHashLength = 8;
+                    setup.AcceptNonHashedIds = false; // does not allow to send regular integeres instead hasids
                 })
                 .AddControllers();
         }
