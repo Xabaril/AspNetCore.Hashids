@@ -18,5 +18,10 @@
         /// Steps (Default "cfhistuCFHISTU")
         /// </summary>
         public string Steps { get; set; } = HashidsNet.Hashids.DEFAULT_SEPS;
+
+        /// <summary>
+        /// Specify if non hashed-ids are allowed on the request. Default is true.
+        /// </summary>
+        public bool AcceptNonHashedIds { get; set; } = true;
     }
 }

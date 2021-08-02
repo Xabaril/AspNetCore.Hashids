@@ -95,6 +95,25 @@ namespace AspNetCore.Hashids.Tests
 
             response.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
         }
+
+        [Fact]
+        public async Task doesn_not_allow_send_integer_instead_hashid_if_configuration_reject_it()
+        {
+            var dto = new CustomerDto
+            {
+                Id = 1,
+                FirstName = "Test",
+                LastName = "Test"
+            };
+
+            var response = await fixture
+                .TestServer
+                .CreateRequest($"api/customers")
+                .WithJsonBody(dto)
+                .PostAsync();
+
+            response.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
+        }
     }
 
     [Route("api/customers")]
