@@ -70,7 +70,7 @@ It will be hashed:
 ]
 ```
 
-You can encoding the ids specifying **minimum hash lenght**:
+You can encoding the ids specifying **minimum hash length**:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
