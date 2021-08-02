@@ -1,4 +1,5 @@
-﻿using HashidsNet;
+﻿using AspNetCore.Hashids.Options;
+using HashidsNet;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text.Json;
@@ -13,7 +14,10 @@ namespace AspNetCore.Hashids.Json
             if (reader.TokenType == JsonTokenType.String)
             {
                 var stringValue = reader.GetString();
-                var hashid = GetHashids(options).Decode(stringValue);
+
+                var hashid = GetHashids(options)
+                    .Decode(stringValue);
+                
 
                 if (hashid.Length == 0)
                 {
@@ -24,7 +28,13 @@ namespace AspNetCore.Hashids.Json
             }
             else if (reader.TokenType == JsonTokenType.Number)
             {
-                return reader.GetInt32();
+                if ( GetHashIdOptions(options).AcceptNonHashedIds)
+                {
+                    return reader.GetInt32();
+                }
+
+                throw new JsonException(@$"Element is decorated with {nameof(HashidsJsonConverter)} 
+but is reading a non hashed id. To allow deserialize numbers set AcceptNonHashedIds to true.");
             }
 
             throw new JsonException();
@@ -33,12 +43,18 @@ namespace AspNetCore.Hashids.Json
 
         public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(GetHashids(options).Encode(value));
+            writer.WriteStringValue(
+                GetHashids(options).Encode(value));
         }
 
         private IHashids GetHashids(JsonSerializerOptions options)
         {
             return options.GetServiceProvider().GetRequiredService<IHashids>();
+        }
+
+        private HashidsOptions GetHashIdOptions(JsonSerializerOptions options)
+        {
+            return options.GetServiceProvider().GetRequiredService<HashidsOptions>();
         }
     }
 }

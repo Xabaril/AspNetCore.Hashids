@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="AspNetCore.Hashids Versions">
-    <AspNetCoreHashids>1.1.1$(VersionSuffix)</AspNetCoreHashids>
+    <AspNetCoreHashids>1.2.0$(VersionSuffix)</AspNetCoreHashids>
   </PropertyGroup>
 
   <PropertyGroup Label="Package Dependencies">
