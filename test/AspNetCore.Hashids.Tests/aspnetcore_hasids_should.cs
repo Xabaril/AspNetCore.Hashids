@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text.Json;
@@ -75,7 +76,7 @@ namespace AspNetCore.Hashids.Tests
                 .CreateRequest($"api/customers/{Hashid}")
                 .GetAsync();
 
-            response.StatusCode.Should().Be(StatusCodes.Status404NotFound);
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -93,7 +94,7 @@ namespace AspNetCore.Hashids.Tests
                 .WithJsonBody(dto)
                 .PostAsync();
 
-            response.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -112,7 +113,7 @@ namespace AspNetCore.Hashids.Tests
                 .WithJsonBody(dto)
                 .PostAsync();
 
-            response.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
     }
 

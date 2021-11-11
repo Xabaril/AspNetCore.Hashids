@@ -1,17 +1,17 @@
 <Project>
   <PropertyGroup Label="SDK Versions">
     <NetStandardTargetVersion21>netstandard2.1</NetStandardTargetVersion21>
-    <NetCoreTargetVersion>net50</NetCoreTargetVersion>
+    <NetCoreTargetVersion>net6.0</NetCoreTargetVersion>
     <LangVersion>preview</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
   <PropertyGroup Label="AspNetCore.Hashids Versions">
-    <AspNetCoreHashids>1.3.0$(VersionSuffix)</AspNetCoreHashids>
+    <AspNetCoreHashids>2.0.0$(VersionSuffix)</AspNetCoreHashids>
   </PropertyGroup>
 
   <PropertyGroup Label="Package Dependencies">
-    <AspNetCoreVersion>5.0.12</AspNetCoreVersion>
+    <AspNetCoreVersion>6.0.0</AspNetCoreVersion>
     <MicrosoftSourceLinkGithub>1.1.1</MicrosoftSourceLinkGithub>
   </PropertyGroup>
   
