@@ -8,9 +8,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Microsoft.Extensions.Options" Version="$(AspNetCoreVersion)" />
-    <PackageReference Update="Hashids.net" Version="1.3.0" />
-    <PackageReference Update="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <!-- <PackageReference Update="Microsoft.Extensions.Options" Version="$(AspNetCoreVersion)" /> -->
+    <PackageReference Update="Hashids.net" Version="1.4.1" />
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="6.1.5" />
   </ItemGroup>
 
   <ItemGroup Label="Testing Dependencies">
@@ -29,7 +29,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Update="xunit" Version="2.4.1" />
     <PackageReference Update="Microsoft.AspNetCore.TestHost" Version="$(AspNetCoreVersion)" />
     <PackageReference Update="FluentAssertions" Version="5.10.3" />
