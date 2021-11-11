@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Package Dependencies">
-    <AspNetCoreVersion>5.0.8</AspNetCoreVersion>
-    <MicrosoftSourceLinkGithub>1.0.0</MicrosoftSourceLinkGithub>
+    <AspNetCoreVersion>5.0.12</AspNetCoreVersion>
+    <MicrosoftSourceLinkGithub>1.1.1</MicrosoftSourceLinkGithub>
   </PropertyGroup>
   
 </Project>
