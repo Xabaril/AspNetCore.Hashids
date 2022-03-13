@@ -44,13 +44,5 @@ namespace WebApi.Controllers
         {
             return Ok(fruits.SingleOrDefault(c => c.Id == id));
         }
-
-        [HttpPost]
-        [Route("")]
-        [Produces(MediaTypeNames.Application.Json)]
-        public ActionResult<FruitDto> Post(FruitDto dto)
-        {
-            return Ok();
-        }
     }
 }
