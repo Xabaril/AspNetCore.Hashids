@@ -39,14 +39,28 @@ namespace AspNetCore.Hashids.Mvc
                 return Task.CompletedTask;
             }
 
-            var ids = hashids.Decode(value);
-
-            if (ids.Length == 0)
+            if (bindingContext.ModelMetadata.ModelType == typeof(long))
             {
-                return Task.CompletedTask;
-            }
+                var ids = hashids.DecodeLong(value);
 
-            bindingContext.Result = ModelBindingResult.Success(ids.First());
+                if (ids.Length == 0)
+                {
+                    return Task.CompletedTask;
+                }
+
+                bindingContext.Result = ModelBindingResult.Success(ids.First());
+            } else
+            {
+                var ids = hashids.Decode(value);
+
+                if (ids.Length == 0)
+                {
+                    return Task.CompletedTask;
+                }
+
+                bindingContext.Result = ModelBindingResult.Success(ids.First());
+            }
+            
 
             return Task.CompletedTask;
         }
