@@ -103,7 +103,7 @@ and the output will be something like this:
 ]
 ```
 
-Also you can use the [HashidsRouteConstarint](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsRouteConstraint.cs) and the [HashidsModelBinder](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsModelBinder.cs) to convert the hashid generated in the original integer value:
+Also you can use the [HashidsRouteConstraint](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsRouteConstraint.cs) and the [HashidsModelBinder](https://github.com/Xabaril/AspNetCore.Hashids/blob/master/src/AspNetCore.Hashids/Mvc/HashidsModelBinder.cs) to convert the hashid generated in the original integer value:
 
 ```csharp
 [HttpGet]
